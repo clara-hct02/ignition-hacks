@@ -3,16 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art Omegle</title>
-    <!-- Connect your CSS styles -->
+    <title>Art Match</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="card profile-card">
+                <h2>dashboard</h2>
+                <p>YOUR WORK</p>
+                <div class="heart-icon">❤️</div>
+            </div>
+            <div class="card feedback-card">
+                <h3>Good Work!</h3>
+                <p>from: Anon67</p>
+            </div>
+            <button class="upload-btn">UPLOAD NEW</button>
+        </aside>
 
-    <h1>Welcome to our Art Platform!</h1>
-    <div id="feed-container"><!-- Posts will load here --></div>
+        <main class="main-content">
+            <div class="top-nav">
+                <button class="nav-tab active">feedback received</button>
+                <button class="nav-tab">Give feedback</button>
+                <span class="view-previous">view previous</span>
+            </div>
 
-    <!-- Connect your JavaScript logic -->
+            <div class="canvas-container">
+                <div class="artwork-frame">
+                    <img class="artwork-display" src="https://media.timeout.com/images/106006274/1920/1440/image.webp" alt="Artwork">
+                    <button class="match-btn">MATCH!</button>
+                </div>
+            </div>
+
+            <div class="feedback-input-section">
+                <p class="tags-label">TAGS:</p>
+                <div class="input-row">
+                    <textarea class="feedback-textbox" placeholder="Feedback here..."></textarea>
+                    <button class="send-btn">SEND</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
     <script src="app.js"></script>
 </body>
 </html>
+

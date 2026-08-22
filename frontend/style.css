@@ -1,18 +1,40 @@
-/* Container holding your whole screen */
-.dashboard-container {
-    display: flex;
-    height: 100vh;
+
+/* Container holding the whole screen */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+}
+
+html, body {
+    min-height: 100%;
+    height: auto;
+}
+
+body {
+    background-color: #f9f9f9;
     font-family: sans-serif;
 }
 
-/* Left side panels stacked vertically */
-.sidebar {
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    background-color: #f9f9f9;
+}
+/* Left side panels vertically */
+..sidebar {
     width: 25%;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    padding: 10px;
-    border-right: 2px solid black;
+    padding: 20px;
+    border-right: 3px solid black;
+    background-color: #ffffff;
 }
 
 /* Right side content area holding image + input */
@@ -20,11 +42,146 @@
     width: 75%;
     display: flex;
     flex-direction: column;
+    padding: 20px;
+    min-height: 0;
 }
 
-/* Card components styling to match your hand-drawn borders */
+/* Card stuff */
 .card {
-    border: 2px solid black;
+    border: 3px solid black;
+    border-radius: 12px;
+    padding: 20px;
+    transform: translateY(10%);
+    background-color: #ffffff;
+}
+
+.feedback-card {
+    margin-top: 30px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.heart-icon {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 10px;
+}
+.upload-btn {
+    margin-top: 40px;
+    padding: 12px;
+    border: 3px solid black;
+    border-radius: 20px;
+    background: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+/* for the top tab bar layout */
+.top-nav {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.nav-tab {
+    padding: 8px 16px;
+    border: 3px solid black;
     border-radius: 8px;
+    background: #c4d7ed;
+    color: rgb(95, 92, 236);
+    font-weight: bold;
+    cursor: pointer;
+}
+/* the view prev */
+.view-previous {
+    margin-left: auto;
+    color: #b3d0f1;
+    text-decoration: underline;
+    cursor: pointer;
+}
+/* to center the canvas */
+.canvas-container {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    min-height: 180px;
+}
+/* frame for the artwork */
+.artwork-frame {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    border: 3px solid black;
+    border-radius: 12px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.artwork-display {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+}
+.match-btn {
+    position: absolute;
+    left: -18px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border: 3px solid #000000;
+    border-radius: 8px;
+    padding: 16px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.feedback-input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 0;
+    flex-shrink: 0;
+    padding-bottom: 8px;
+}
+
+.tags-label {
+    margin: 0;
+    font-weight: 700;
+}
+
+.input-row {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+}
+/* the text box for feedback */
+.feedback-textbox {
+    flex-grow: 1;
+    height: 90px;
+    min-height: 90px;
+    border: 3px solid black;
+    border-radius: 12px;
     padding: 15px;
+    font-size: 16px;
+    resize: none;
+}
+/* the send button for feedback */
+.send-btn {
+    padding: 15px 30px;
+    border: 3px solid black;
+    border-radius: 12px;
+    background: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
 }
