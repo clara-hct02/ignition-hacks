@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap');
 
 /* Container holding the whole screen */
+
 
 * {
     box-sizing: border-box;
@@ -15,7 +17,25 @@ html, body {
 
 body {
     background-color: #f9f9f9;
-    font-family: sans-serif;
+    font-family: 'Nunito', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .nav-tab, .view-previous, .tags-label, .send-btn, .match-btn {
+    font-family: 'Baloo 2', cursive;
+}
+
+h2 {
+    font-size: 2.2rem;
+    line-height: 0.9;
+    letter-spacing: 0.04em;
+    font-weight: 800;
+}
+
+h3 {
+    font-size: 1.7rem;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    font-weight: 700;
 }
 
 .dashboard-container {
@@ -23,36 +43,38 @@ body {
     height: 100vh;
     max-height: 100vh;
     overflow: hidden;
-    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-    background-color: #f9f9f9;
+    font-family: 'Nunito', sans-serif;
+    background-color: #fdf3e3;
+    color: #362c2b;
 }
-/* Left side panels vertically */
-..sidebar {
-    width: 25%;
+
+.sidebar {
+    width: 20%;
     display: flex;
     flex-direction: column;
     gap: 15px;
     padding: 20px;
-    border-right: 3px solid black;
-    background-color: #ffffff;
+    background-color: #f6ece2;
+    border-right: 1px solid #99816d;
 }
 
-/* Right side content area holding image + input */
 .main-content {
-    width: 75%;
+    width: 78%;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    justify-content: flex-start;
+    padding: 20px 24px 16px;
     min-height: 0;
 }
 
 /* Card stuff */
 .card {
-    border: 3px solid black;
-    border-radius: 12px;
+    border: 3px solid #392a20;
+    border-radius: 22px;
     padding: 20px;
     transform: translateY(10%);
-    background-color: #ffffff;
+    background: #ebd2c2;
+    box-shadow: 0 8px 18px rgba(112, 77, 61, 0.08);
 }
 
 .feedback-card {
@@ -69,33 +91,50 @@ body {
 .upload-btn {
     margin-top: 40px;
     padding: 12px;
-    border: 3px solid black;
+    border: 3px solid #523826;
     border-radius: 20px;
-    background: white;
+    background: #7c5941;
+    color: white;
     font-weight: bold;
+    box-shadow: 0 4px 10px rgba(230, 184, 156, 0.3);
     cursor: pointer;
+}
+.upload-btn:hover {
+    background: #46230d;
 }
 /* for the top tab bar layout */
 .top-nav {
     display: flex;
-    gap: 10px;
     align-items: center;
-    margin-bottom: 15px;
+    justify-content: flex-start;
+    gap: 12px;
+    width: 100%;
+    margin: 0 auto 18px;
 }
+
 .nav-tab {
-    padding: 8px 16px;
-    border: 3px solid black;
-    border-radius: 8px;
-    background: #c4d7ed;
-    color: rgb(95, 92, 236);
-    font-weight: bold;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 999px;
+    background: #7a5142;
+    color: #e9dfda;
+    font-weight: 800;
     cursor: pointer;
+    font-family: 'Baloo 2', cursive;
+    letter-spacing: 0.03em;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
-/* the view prev */
+
+.nav-tab:hover {
+    background: #422e25;
+}
+
 .view-previous {
     margin-left: auto;
-    color: #b3d0f1;
-    text-decoration: underline;
+    color: #a87c61;
+    text-decoration: none;
+    font-weight: 800;
+    font-family: 'Baloo 2', cursive;
     cursor: pointer;
 }
 /* to center the canvas */
@@ -112,27 +151,30 @@ body {
     position: relative;
     width: 90%;
     height: 90%;
-    border: 3px solid black;
-    border-radius: 12px;
-    background: white;
+    border: 3px solid rgb(106, 92, 82);
+    border-radius: 26px;
+    background: #fff8f4;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 12px 26px rgba(74, 62, 61, 0.08);
 }
 
-.artwork-display {
+.artwork-placeholder {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    line-height: 1.2;
+    color: #5f3d31;
+    background: #fffaf7;
 }
 
-.artwork-display img {
-    max-width: 95%;
-    max-height: 95%;
-    object-fit: contain;
-}
 .match-btn {
     position: absolute;
     left: -18px;
@@ -141,56 +183,86 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff;
-    border: 3px solid #000000;
-    border-radius: 8px;
-    padding: 16px 8px;
+    background: #7c5941;
+    color: white;
+    border: none;
+    border-radius: 18px;
+    padding: 20px 8px;
     font-size: 12px;
-    font-weight: bold;
+    font-weight: 800;
     cursor: pointer;
     writing-mode: vertical-lr;
     text-orientation: upright;
     letter-spacing: 2px;
     line-height: 1.2;
+    font-family: 'Baloo 2', cursive;
+    box-shadow: 0 6px 14px rgba(214, 141, 101, 0.28);
 }
 
 .feedback-input-section {
+    width: min(680px, 100%);
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    margin-top: 0;
+    gap: 8px;
+    margin: 0 auto;
     flex-shrink: 0;
     padding-bottom: 8px;
 }
 
-.tags-label {
-    margin: 0;
+.comment-display {
+    font-family: 'Baloo 2', cursive;
     font-weight: 700;
+    color: #5f3d31;
+    letter-spacing: 0.03em;
+    font-size: 1.1rem;
 }
 
-.input-row {
+.tags-section {
     display: flex;
+    align-items: stretch;
     gap: 15px;
-    align-items: flex-end;
+    width: 100%;
 }
-/* the text box for feedback */
-.feedback-textbox {
-    flex-grow: 1;
-    height: 90px;
-    min-height: 90px;
-    border: 3px solid black;
-    border-radius: 12px;
+
+.feedback-input {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    height: 92px;
+    border: 3px solid #4b2d20;
+    border-radius: 16px;
     padding: 15px;
     font-size: 16px;
     resize: none;
+    background: #fffaf3;
+    color: #4b2d20;
+    font-family: 'Nunito', sans-serif;
+    box-shadow: inset 0 2px 5px rgba(93, 67, 51, 0.08);
 }
-/* the send button for feedback */
+
+.feedback-input::placeholder {
+    color: #7b5e4e;
+    font-family: 'Nunito', sans-serif;
+}
+
 .send-btn {
-    padding: 15px 30px;
-    border: 3px solid black;
-    border-radius: 12px;
-    background: white;
-    font-weight: bold;
+    height: 92px;
+    min-width: 120px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 14px;
+    background: #7c5941;
+    color: white;
+    font-weight: 800;
     font-size: 16px;
     cursor: pointer;
+    font-family: 'Baloo 2', cursive;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.send-btn:hover {
+    background: #41210d;
 }
