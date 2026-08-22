@@ -175,6 +175,12 @@ h3 {
     background: #fffaf7;
 }
 
+.artwork-placeholder img {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+}
+
 .match-btn {
     position: absolute;
     left: -18px;
