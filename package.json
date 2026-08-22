@@ -1,0 +1,30 @@
+{
+  "name": "ignition-hacks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
+    "start-backend": "cd backend && node server.mjs",
+    "start-frontend": "cd frontend && live-server --port=8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clara-hct02/ignition-hacks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/clara-hct02/ignition-hacks/issues"
+  },
+  "homepage": "https://github.com/clara-hct02/ignition-hacks#readme",
+  "dependencies": {
+    "concurrently": "^10.0.5"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
