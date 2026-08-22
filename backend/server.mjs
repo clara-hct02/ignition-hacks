@@ -46,6 +46,27 @@ app.post('/artworks/:artworkId/comments', async (req, res) => {
   }
 });
 
+// router.post('/artwork/:artworkId/comments', (req, res) => {
+//   const { artworkId } = req.params;
+//   const { userId, text } = req.body;
+ 
+//   if (!text || !userId) {
+//     return res.status(400).json({ error: 'Missing text or userId' });
+//   }
+ 
+//   const newComment = {
+//     id: commentId++,
+//     artworkId,
+//     userId,
+//     text,
+//     timestamp: new Date(),
+//     likes: 0
+//   };
+ 
+//   comments.push(newComment);
+//   res.status(201).json(newComment);
+// });
+
 app.listen(3000, '127.0.0.1', () => {
   console.log('Listening on 127.0.0.1:3000');
 });

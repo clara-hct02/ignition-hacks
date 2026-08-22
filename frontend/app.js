@@ -40,3 +40,24 @@ fileInput.addEventListener('change', async () => {
   };
   reader.readAsDataURL(file);
 });
+
+let currentComment = '';
+
+document.querySelector('.send-btn')?.addEventListener('click', function() {
+  const textarea = document.querySelector('.feedback-input');
+  if (textarea && textarea.value.trim()) {
+    currentComment = textarea.value;
+    textarea.value = '';
+    displayComment();
+  }
+});
+
+function displayComment() {
+  const commentBox = document.querySelector('.comment-display');
+  commentBox.innerHTML = `
+    <div class="comment-item">
+        <strong>Feedback:</strong>
+      <p>${currentComment}</p>
+    </div>
+  `;
+}
