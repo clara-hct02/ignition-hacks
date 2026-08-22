@@ -27,7 +27,9 @@ fileInput.addEventListener('change', async () => {
   reader.onload = async (e) => {
     const base64 = e.target.result;
 
-    document.getElementById('artwork-display').innerHTML = `<img src="${base64}" alt="preview">`;
+    const display = document.getElementById('artwork-display');
+    display.src = base64;
+    display.alt = 'preview';
     
     const response = await fetch('/upload', {
       method: 'POST',
