@@ -119,7 +119,16 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .artwork-display {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.artwork-display img {
     max-width: 95%;
     max-height: 95%;
     object-fit: contain;
