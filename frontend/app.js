@@ -20,27 +20,34 @@ uploadBtn.addEventListener('click', () => {
 });
 
 fileInput.addEventListener('change', async () => {
-  const file = fileInput.files[0];
-  if (!file) return;
-  
-  const reader = new FileReader();
-  reader.onload = async (e) => {
-    const base64 = e.target.result;
+    const credits = getCredits();
+    if (credits < 2) {
+        alert('Not enough credits. Give feedback to others to earn more!');
+        return;
+    }
 
-    const display = document.getElementById('artwork-display');
-    display.src = base64;
-    display.alt = 'preview';
+    updateCredits(-2); // -2 credit for upload
     
-    const response = await fetch('/upload', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ image: base64 })
-    });
+    const file = fileInput.files[0];
+    if (!file) return;
     
-    const result = await response.json();
-    console.log('Uploaded!', result);
-  };
-  reader.readAsDataURL(file);
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+        const base64 = e.target.result;
+
+        document.getElementById('artwork-display').innerHTML = `<img src="${base64}" alt="preview">`;
+        
+        const response = await fetch('/upload', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ image: base64 })
+        });
+        
+        const result = await response.json();
+        console.log('Uploaded!', result);
+    };
+    reader.readAsDataURL(file);
+    alert('Image uploaded! You now have ' + getCredits() + ' credits');
 });
 
 let currentComment = '';
@@ -52,6 +59,7 @@ document.querySelector('.send-btn')?.addEventListener('click', function() {
     textarea.value = '';
     displayComment();
   }
+  handleCommentSubmit();
 });
 
 function displayComment() {
@@ -63,3 +71,29 @@ function displayComment() {
     </div>
   `;
 }
+
+const getCredits = () => {
+  const stored = localStorage.getItem('userCredits');
+  return stored ? parseInt(stored) : 2;
+};
+
+const updateCredits = (amount) => {
+  const current = getCredits();
+  const newAmount = current + amount;
+  localStorage.setItem('userCredits', newAmount);
+  displayCredits();
+  return newAmount;
+};
+
+const handleCommentSubmit = async () => {
+  const newCredits = updateCredits(1);
+  alert(`Feedback sent! You earned 1 credit. (Total: ${newCredits})`);
+};
+
+
+const displayCredits = () => {
+    const credits = localStorage.getItem('userCredits') || 2;
+    document.getElementById('credit-display').textContent = `Credits: ${credits}`;
+  };
+  
+displayCredits();
